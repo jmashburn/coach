@@ -1,0 +1,5 @@
+.vagrant
+vendor
+var/log/*.log
+composer.lock
+var/db/*.db

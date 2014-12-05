@@ -1,0 +1,9 @@
+"responseData":{"count": "<?php echo count($data['containers']); ?>", "containers": [
+<?php 
+	$containersInfo = array();
+	foreach ($data['containers'] as $container) {
+		$containersInfo[] = $container->toJson();
+	}
+	echo implode(',', $containersInfo);
+?>
+]}

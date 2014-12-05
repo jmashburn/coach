@@ -1,0 +1,37 @@
+{
+    "name": "jmashburn/stager",
+    "description": "A PHP Clone of Stager",
+    "authors": [
+        {
+            "name": "Jared Mashburn",
+            "email": "jmashburn@iwobble.com"
+        }
+    ],
+    "repositories": [
+    	{
+    		"type": "vcs",
+    		"url": "https://github.com/jmashburn/ToroPHP"
+    	},
+        {
+            "type": "vcs",
+            "url": "https://github.com/jmashburn/php-resque"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jmashburn/docker-php"
+        }
+    ],
+    "require": {
+    	"php": ">5.3.0",
+        "torophp/torophp": "dev-master",
+	    "lespoilus/spyc": "dev-master",
+	    "chrisboulton/php-resque": "dev-master",
+        "iwobble/docker-php": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+             "": ["module/Application/src/"],
+            "Stager\\": "module/Stager/src/"
+        }
+    }
+}
