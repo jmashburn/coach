@@ -10,7 +10,7 @@ class KillHandler extends AbstractStagerHandler {
 		try{
 			$params = $this->getParameters(array('container_name' => null));
 			$this->validateMandatoryParameters($params, array('container_name'));
-			$result = $this->kill(array('container_name' => $params['container_name']));
+			$result = $this->kill($params);
 			return $this->display('kill/kill.json.phtml', compact('result'));
 		} catch (\Exception $e) {
 			return $this->display('exception/exception.json.phtml', $e);

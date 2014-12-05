@@ -12,12 +12,7 @@ class LaunchHandler extends AbstractStagerHandler{
 			$params = $this->getParameters(array( 
 				'image_name'=> null, 'container_name' => null));
 			$this->validateMandatoryParameters($params, array('image_name', 'container_name'));
-
-			$result = array(
-				'image_name'=> $params['image_name'],
-				'container_name' => $params['container_name']
-			);
-			$container = $this->launch($result);
+			$container = $this->launch($params);
 			return $this->display('launch/launch.json.phtml', compact('container'));
 		} catch (\Exception $e) {
 			return $this->display('exception/exception.json.phtml', $e);

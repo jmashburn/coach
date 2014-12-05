@@ -37,19 +37,10 @@ class EventHandler extends AbstractStagerHandler {
 
 	public function get() {
 		try {
-			$params = $this->getParameters(array('action' => null, 
+			$params = $this->getParameters(array('action' => "unknown", 
 				'image_name'=> null, 'container_name' => null, 
 				'repo_owner' => null, 'pull_request_number' => null));
-
-
-			$result = array(
-				'action' => (!empty($this->map[$params['action']]))?$this->map[$params['action']]:'unknown',
-				'image_name'=> $params['image_name'],
-				'container_name' => $params['container_name'],
-				'repo_owner' => $params['repo_owner'],
-				'pull_request_number' => $params['pull_request_number']
-			);
-			$result = $this->event($result['action'], $result);
+			$result = $this->event($params['action'], $params);
 			return $this->display('event/event.json.phtml', compact('result'));
 		} catch (\Exception $e) {
 			return $this->display('exception/execption.json.phtml');
